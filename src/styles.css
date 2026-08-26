@@ -1,0 +1,247 @@
+:root {
+  color-scheme: light;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #f6f7fb;
+  color: #1c2230;
+}
+
+.app {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+.app-header h1 {
+  margin-bottom: 0.25rem;
+}
+
+.app-header p {
+  max-width: 65ch;
+  color: #495066;
+  line-height: 1.5;
+}
+
+.layout-grid {
+  display: grid;
+  grid-template-columns: minmax(260px, 320px) 1fr;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.constraint-editor,
+.layout-canvas,
+.step-player,
+.candidate-list {
+  background: white;
+  border: 1px solid #e2e5ee;
+  border-radius: 10px;
+  padding: 1.25rem;
+}
+
+.constraint-editor {
+  grid-row: span 3;
+}
+
+.constraint-editor h2 {
+  font-size: 1rem;
+  margin: 0 0 0.5rem;
+}
+
+.room-list,
+.constraint-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.room-list li,
+.constraint-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  background: #f6f7fb;
+  border-radius: 6px;
+  padding: 0.35rem 0.6rem;
+}
+
+.room-weight {
+  color: #7b8194;
+  font-size: 0.8rem;
+  margin-left: auto;
+}
+
+.room-list button,
+.constraint-list button {
+  border: none;
+  background: transparent;
+  color: #a3495a;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.add-room-form,
+.add-constraint-form {
+  display: flex;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.add-room-form input {
+  flex: 1;
+  min-width: 0;
+}
+
+.add-room-form input[type="number"] {
+  flex: 0 0 5rem;
+}
+
+input,
+select,
+button {
+  font: inherit;
+  padding: 0.4rem 0.55rem;
+  border-radius: 6px;
+  border: 1px solid #d3d7e2;
+}
+
+button {
+  cursor: pointer;
+  background: #eef1fb;
+  border-color: #c8d0f2;
+}
+
+.regenerate-button {
+  width: 100%;
+  background: #5b8def;
+  color: white;
+  border: none;
+  padding: 0.6rem;
+  font-weight: 600;
+}
+
+.floorplan-svg {
+  width: 100%;
+  height: auto;
+  background: #fbfbfd;
+  border: 1px solid #e2e5ee;
+  border-radius: 8px;
+}
+
+.room-label {
+  font-size: 11px;
+  fill: #1c2230;
+}
+
+.constraint-line {
+  stroke-width: 2;
+}
+
+.constraint-line.satisfied {
+  stroke: #3f9d63;
+}
+
+.constraint-line.violated {
+  stroke: #c85361;
+  stroke-dasharray: 4 3;
+}
+
+.step-bounds {
+  fill: none;
+  stroke: #d3d7e2;
+}
+
+.cut-line {
+  stroke: #5b8def;
+  stroke-width: 1.5;
+}
+
+.step-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.step-count {
+  margin-left: auto;
+  color: #7b8194;
+  font-size: 0.85rem;
+}
+
+.score-breakdown {
+  display: flex;
+  gap: 1.5rem;
+  margin: 0.75rem 0 0;
+}
+
+.score-breakdown dt {
+  font-size: 0.75rem;
+  color: #7b8194;
+}
+
+.score-breakdown dd {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.candidate-list ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.candidate-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-align: left;
+  background: #f6f7fb;
+}
+
+.candidate-button.selected {
+  background: #dbe6ff;
+  border-color: #5b8def;
+}
+
+.candidate-rank {
+  font-weight: 600;
+  color: #7b8194;
+}
+
+.candidate-score {
+  font-weight: 700;
+}
+
+.candidate-detail {
+  margin-left: auto;
+  color: #7b8194;
+  font-size: 0.8rem;
+}
+
+.empty-state {
+  color: #7b8194;
+}
+
+@media (max-width: 760px) {
+  .layout-grid {
+    grid-template-columns: 1fr;
+  }
+  .constraint-editor {
+    grid-row: auto;
+  }
+}
