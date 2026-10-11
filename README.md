@@ -1,3 +1,5 @@
+**[Live demo →](https://sarasharifzadehasli.github.io/roomforge/)**
+
 # RoomForge
 
 A constraint-based floor-plan generator. You describe the rooms you want and which ones need to
@@ -24,7 +26,7 @@ The problem itself — arranging rooms in a floor plan so that some pairs are ne
 while keeping relative sizes sensible — is a small, self-contained version of a real research
 area: "slicing floorplans" are used in VLSI chip layout and architectural space planning, and
 constraint-driven generative layout is an active area in generative design and mixed-initiative
-design tools (systems where a person states *what* they want and a system proposes *how*, rather
+design tools (systems where a person states _what_ they want and a system proposes _how_, rather
 than the person drawing every pixel by hand).
 
 ## How the algorithm works
@@ -32,7 +34,7 @@ than the person drawing every pixel by hand).
 A floor plan here is represented as a binary tree: every internal node is a single cut — either a
 vertical line splitting the space left/right, or a horizontal line splitting it top/bottom — and
 every leaf is one room. This is exactly why two rooms end up sharing a wall: it happens when (and
-only when) they're close together in the room *ordering* the tree was built from and land as
+only when) they're close together in the room _ordering_ the tree was built from and land as
 sibling subtrees. That's the core idea `src/algorithm/partition.ts` implements: given an ordering
 of rooms and their relative sizes, recursively split the bounding rectangle into a balanced
 prefix/suffix at each level (by total weight, not just by count), alternating cut orientation with
@@ -66,7 +68,7 @@ Two things beyond the algorithm itself:
   black-box output.
 - **Step-through playback.** `StepPlayer` replays the recursive cuts that built the currently
   selected layout, one at a time, instead of only showing the finished rectangle. The goal is
-  transparency into *how* a generative system arrived at what it's showing you — a real design
+  transparency into _how_ a generative system arrived at what it's showing you — a real design
   question in generative/mixed-initiative tools, not just a nice animation.
 
 ## What's tested, and what isn't
@@ -98,5 +100,5 @@ Two things beyond the algorithm itself:
 
 - Let the user drag a cut line to manually override part of a generated layout.
 - Support L-shaped rooms via a non-slicing (graph-based) layout representation.
-- Surface *why* a specific constraint was violated (e.g. "no ordering found puts both required
+- Surface _why_ a specific constraint was violated (e.g. "no ordering found puts both required
   neighbors next to Office at once") instead of just marking it unsatisfied.
