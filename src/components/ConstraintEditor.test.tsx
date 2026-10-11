@@ -51,7 +51,7 @@ describe("ConstraintEditor", () => {
       />
     );
 
-    expect(screen.getByText("Kitchen")).toBeInTheDocument();
+    expect(screen.getByText("Kitchen", { selector: "span" })).toBeInTheDocument();
     expect(screen.getByLabelText("Remove Kitchen")).toBeInTheDocument();
   });
 
